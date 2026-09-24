@@ -1,4 +1,3 @@
-[documenta_o_do_projeto_edge_computing.md](https://github.com/user-attachments/files/32586951/documenta_o_do_projeto_edge_computing.md)
 # Sistema de Monitoramento Termo-Higrométrico de Borda para Treinamento de Alta Performance (Pelé Academia)
 
 ## 1. Visão Geral do Projeto
