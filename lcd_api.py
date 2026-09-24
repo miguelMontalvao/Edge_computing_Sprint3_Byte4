@@ -1,0 +1,49 @@
+import time
+
+class LcdApi:
+    def __init__(self, num_lines, num_columns):
+        self.num_lines = num_lines
+        self.num_columns = num_columns
+        if num_lines > 4:
+            self.num_lines = 4
+        self.cursor_x = 0
+        self.cursor_y = 0
+        self.backlight = True
+        self.clear()
+
+    def clear(self):
+        self.hal_write_command(0x01)
+        self.hal_write_command(0x02)
+        self.cursor_x = 0
+        self.cursor_y = 0
+
+    def putchar(self, char):
+        if char == '\n':
+            self.cursor_x = 0
+            self.cursor_y += 1
+            if self.cursor_y >= self.num_lines:
+                self.cursor_y = 0
+            self.move_to(self.cursor_x, self.cursor_y)
+        else:
+            self.hal_write_data(ord(char))
+            self.cursor_x += 1
+            if self.cursor_x >= self.num_columns:
+                self.cursor_x = 0
+                self.cursor_y += 1
+                if self.cursor_y >= self.num_lines:
+                    self.cursor_y = 0
+                self.move_to(self.cursor_x, self.cursor_y)
+
+    def putstr(self, string):
+        for char in string:
+            self.putchar(char)
+
+    def move_to(self, cursor_x, cursor_y):
+        self.cursor_x = cursor_x
+        self.cursor_y = cursor_y
+        addr = cursor_x & 0x3F
+        if cursor_y & 1:
+            addr += 0x40
+        if cursor_y & 2:
+            addr += self.num_columns
+        self.hal_write_command(0x80 | addr)
