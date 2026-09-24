@@ -104,3 +104,12 @@ O repositório deve conter obrigatoriamente a seguinte estrutura para execução
 
 * AMERICAN COLLEGE OF SPORTS MEDICINE (ACSM). **Exercise and Fluid Replacement**. Medicine & Science in Sports & Exercise, v. 39, n. 2, p. 377-390, 2007.
 * WORLD HEALTH ORGANIZATION (WHO). **Thermal Environment and Health Aspects in Sports Practice**. Geneva: WHO, 2018.
+
+* ---
+
+## 👥 Integrantes do Grupo (Pelé Next Gen)
+
+* **Arthur Moreira** — RM: 571532
+* **Miguel Montalvão** — RM: 573825
+* **Pedro Provadelli** — RM: 572547
+* **Vitor Louzano** — RM: 573885
